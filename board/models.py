@@ -8,7 +8,7 @@ class Sprint(models.Model):
     Período de interação do desenvolvimento
     """
     name = models.CharField(max_length=100, blank=True, default='')
-    description = models.TextField(max_length=True, default='')
+    description = models.TextField(blank=True, default='')
     end = models.DateField(unique=True)
 
     def __str__(self):
