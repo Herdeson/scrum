@@ -3,8 +3,8 @@ from rest_framework import viewsets, authentication, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Sprint, Task
 from .serializers import SprintSerializers, TaskSerializer, UserSerializer
-from .filters import TaskFilter
-
+from .filters import TaskFilter, Sprintfilter
+#227191803-0X
 User = get_user_model()
 
 # Create your views here.
@@ -33,6 +33,7 @@ class DefaultsMixin(object):
 class SprintViewSet(DefaultsMixin, viewsets.ModelViewSet):
     queryset = Sprint.objects.order_by('end')
     serializer_class = SprintSerializers
+    filter_class = Sprintfilter
     search_fields = ('name',)
     ordering_fields = ('end', 'name',)
 
